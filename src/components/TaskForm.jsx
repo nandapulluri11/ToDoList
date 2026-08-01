@@ -36,38 +36,42 @@ function TaskForm({ addTask, editingTask }) {
     <div className="card">
       <h2>{editingTask ? "Edit Task" : "Add New Task"}</h2>
 
-      <br />
-
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Task Name"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-
-        <select
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          style={{ marginLeft: "10px" }}
-        >
-          <option>Pending</option>
-          <option>Completed</option>
-        </select>
-
-        <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-          style={{ marginLeft: "10px" }}
-        />
-
-        <button
-          className="primary-btn"
-          style={{ marginLeft: "10px" }}
-        >
-          {editingTask ? "Update" : "Add"}
-        </button>
+        <div className="form-row">
+          <div className="form-control">
+            <label htmlFor="task-title">Task Name</label>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="Task Name"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="form-control">
+            <label htmlFor="task-status">Status</label>
+            <select
+              id="task-status"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <option>Pending</option>
+              <option>Completed</option>
+            </select>
+          </div>
+          <div className="form-control">
+            <label htmlFor="due-date">Due Date</label>
+            <input
+              type="date"
+              id="due-date"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+            />
+          </div>
+          <button className="primary-btn">
+            {editingTask ? "Update" : "Add"}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -20,13 +20,18 @@ function App() {
   };
 
   return (
-    <>
-      {user ? (
-        <Dashboard username={user} onLogout={handleLogout} />
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-    </>
+    <div className="app-container">
+      <header className="app-header">
+        <h1>ToDoList</h1>
+      </header>
+      <main className="app-main">
+        {user ? (
+          <Dashboard username={user} onLogout={handleLogout} />
+        ) : (
+          <Login onLogin={handleLogin} />
+        )}
+      </main>
+    </div>
   );
 }
 
